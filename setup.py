@@ -53,6 +53,7 @@ setup(
         'plone.api>=1.8.4',
         'plone.restapi < 8.0.0',
         'plone.app.dexterity',
+        'ftw.oidcauth'
     ],
     extras_require={
         'test': [

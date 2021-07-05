@@ -1,6 +1,15 @@
 # -*- coding: utf-8 -*-
 from Products.CMFPlone.interfaces import INonInstallable
 from zope.interface import implementer
+from ftw.oidcauth.plugin import OIDCPlugin
+from zope.component.hooks import getSite
+from App.config import getConfiguration
+import os
+import json
+from pathlib import Path
+from Products.CMFCore.utils import getToolByName
+from pprint import pprint
+import io
 DEFAULT_ID_OIDC = 'oidc'
 TITLE_OIDC = 'Open ID connect'
 
@@ -45,7 +54,7 @@ def _add_oidc(pas, pluginid, title):
 
 def post_install(context):
     """Post install script"""
-     aclu = getSite().acl_users
+    aclu = getSite().acl_users
     _add_oidc(aclu, DEFAULT_ID_OIDC, TITLE_OIDC)
 
 
